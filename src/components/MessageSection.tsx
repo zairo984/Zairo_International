@@ -56,7 +56,7 @@ const MessageSection = () => {
                   }}
                 >
                   Discover More
-              </button>
+            </button>
         </div>
       </div>
     </div>
