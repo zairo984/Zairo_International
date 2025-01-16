@@ -62,16 +62,18 @@ const Slider = () => {
             <div className="slide">
               {/* Full-screen image */}
               <img
-                src={slide.image}
-                style={{
-                  width: '100%',
-                  height: '100vh', // Full viewport height
-                  objectFit: 'cover', // Ensures image covers the area
-                  position: 'relative', // Necessary for z-index
-                  zIndex: '-1',
-                  filter: 'brightness(40%)',
-                }}
-              />
+    src={slide.image}
+    alt="slide image"
+    style={{
+      width: '100%',
+      height: '100vh', // Full viewport height
+      objectFit: 'cover', // Ensures image covers the area
+      position: 'relative', // Necessary for z-index
+      zIndex: '-1',
+      filter: 'brightness(40%)', // Initial brightness (before hover)
+      transition: 'transform 5s, filter 3s ease-in-out', // Add smooth transition for zoom and brightness
+    }}
+  />
 
               {/* Animated shape1 image */}
               <img
@@ -112,11 +114,31 @@ const Slider = () => {
                 zIndex: '1', fontSize: '35px', fontFamily: "arial" }}>
                 <div className="main-slider-one__content">
                   {/* Main Text: Slide 1 */}
-                  <h1 className="animate__animated custom-bounce-up">{slide.bigText}</h1>
-                  <h3 className="animate__animated custom-bounce-up" style={{ color: '#fff' }}>
+                  <h1 className="animate__animated custom-bounce-up text-[70px] mt-8 ">{slide.bigText}</h1>
+                  <h3 className="animate__animated custom-bounce-up text-[35px] mt-4" style={{ color: '#fff' }}>
                     {slide.smallText}
                   </h3>
                 </div>
+                <button
+                  type="button"
+                  style={{
+                    marginTop: '70px',
+                    fontSize: '20px',
+                    width: '140px',
+                    fontFamily: 'Arial',
+                    backgroundColor: '#dc1212', // Remove background
+                    color: '#fff', // Text color (you can customize)
+                    padding: '15px', // No padding
+                    border: 'none', // Remove border
+                    outline: 'none', // Remove any focus outline
+                    textAlign: 'center', // Ensure text is centered
+                    cursor: 'pointer', // Pointer cursor on hover
+                    borderRadius: '7px'
+                  }}
+                >
+                  Contact Us
+              </button>
+
               </div>
             </div>
           </SwiperSlide>

@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .main-slider {
   width: 100%;
   height: 100vh;
@@ -71,4 +75,17 @@ a.btn:hover, button.btn:hover {
 /* Apply animation */
 .custom-bounce-up {
   animation: bounceUp 2s ease-out forwards;
+}
+
+/* Slow-motion Zoom Container */
+.img-hover-zoom--slowmo img {
+  transform-origin: 50% 65%; /* Control the point from which the zoom occurs */
+  filter: brightness(150%); /* Initial brightness (before hover) */
+  transition: transform 5s, filter 3s ease-in-out; /* Smooth transition */
+}
+
+/* The Transformation */
+.img-hover-zoom--slowmo:hover img {
+  filter: brightness(100%); /* Change brightness on hover */
+  transform: scale(3); /* Zoom in on hover */
 }

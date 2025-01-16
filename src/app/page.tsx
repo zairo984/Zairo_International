@@ -1,9 +1,14 @@
 import Slider from '@/components/Slider';
+import MessageSection from '@/components/MessageSection';
 
 export default function Home() {
   return (
     <main>
-      <Slider />
+      <section>
+        <Slider />
+        <MessageSection/>
+      </section>
+        
     </main>
   );
 }
