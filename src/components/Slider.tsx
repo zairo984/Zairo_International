@@ -61,19 +61,18 @@ const Slider = () => {
           <SwiperSlide key={slide.id}>
             <div className="slide">
               {/* Full-screen image */}
-              <img
-    src={slide.image}
-    alt="slide image"
-    style={{
-      width: '100%',
-      height: '100vh', // Full viewport height
-      objectFit: 'cover', // Ensures image covers the area
-      position: 'relative', // Necessary for z-index
-      zIndex: '-1',
-      filter: 'brightness(40%)', // Initial brightness (before hover)
-      transition: 'transform 5s, filter 3s ease-in-out', // Add smooth transition for zoom and brightness
-    }}
-  />
+              <img className='transition-transform duration-500 ease-in-out transform hover:scale-110'
+                src={slide.image}
+                alt="slide image"
+                style={{
+                  width: '100%',
+                  height: '100vh', // Full viewport height
+                  objectFit: 'cover', // Ensures image covers the area
+                  position: 'relative', // Necessary for z-index
+                  zIndex: '-1',
+                  filter: 'brightness(40%)', // Initial brightness (before hover)
+                }}
+              />
 
               {/* Animated shape1 image */}
               <img
