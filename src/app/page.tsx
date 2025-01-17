@@ -2,6 +2,7 @@ import Slider from '@/components/Slider';
 import 'animate.css';
 import Expertise from '@/components/Expertise';
 import MessageSection from '@/components/MessageSection';
+import Team from '@/components/Team';
 
 export default function Home() {
 
@@ -11,6 +12,9 @@ export default function Home() {
         <Slider />
         <MessageSection/>
         <Expertise/>
+        <section>
+          <Team/>
+        </section>
       </section>
         
     </main>
