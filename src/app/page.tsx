@@ -1,7 +1,6 @@
 import Slider from '@/components/Slider';
 import 'animate.css';
-import WOW from 'wowjs';
-
+import Expertise from '@/components/Expertise';
 import MessageSection from '@/components/MessageSection';
 
 export default function Home() {
@@ -11,6 +10,7 @@ export default function Home() {
       <section>
         <Slider />
         <MessageSection/>
+        <Expertise/>
       </section>
         
     </main>

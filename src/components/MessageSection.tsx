@@ -14,13 +14,18 @@ const MessageSection = () => {
       }, []);
 
   return (
-    <div className="my-[20px] mx-[120px] grid h-screen grid-cols-12">
+    <div className="my-[20px] mx-[120px] grid h-screen grid-cols-12 ">
       {/* Left Column with Image */}
-        <div className="col-span-5 bg-white flex items-center justify-center relative">
+        <div className="col-span-5 bg-white flex items-center  justify-center shadow-blue-700-2xl relative">
+          <div className='slide-in-blurred-top absolute w-full bg-white top-0 transition-all duration-500 ease-in-out transform origin-top group-hover:translate-y-full group-hover:scale-105' 
+>
+        
+          </div>
         <Image
           className="w-[500px] h-[700px] max-w-full absolute right-0 transition-transform duration-500 ease-in-out transform hover:scale-105 wow fadeInDown"  
           src={ceo} // Correctly passing the imported image as the source
           alt="CEO"
+          
         />
         <div className="counter-box absolute left-[160px] bottom-[80px] ">
             <h2 className="count">
@@ -48,14 +53,14 @@ const MessageSection = () => {
                 </p>
             </div>
             <button
-                  type="button"
-                  className='mt-[70px] text-[20px] w-[170px] bg-red-600 text-white p-[16px] border border-none outline-none ml-3 font-bold cursor-pointer rounded-lg'
-                  style={{
-                    fontFamily: 'Helvetica',
-                    
-                  }}
-                >
-                  Discover More
+              type="button"
+              className="mt-[70px] text-[20px] w-[170px] bg-red-600 text-white p-[16px] border-none outline-none ml-3 font-bold cursor-pointer rounded-lg"
+              style={{
+                fontFamily: 'Helvetica',
+                animation: 'hover-scale-up-tl 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both',
+              }}
+            >
+              Discover More
             </button>
         </div>
       </div>

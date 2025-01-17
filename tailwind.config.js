@@ -11,5 +11,8 @@ module.exports = {
   theme: {
     extend: {},
   },
+  animation: {
+    fadeInUp: 'fadeInUp 0.5s ease-in-out',
+  },
   plugins: [],
 }
