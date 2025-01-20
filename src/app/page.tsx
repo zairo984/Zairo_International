@@ -5,12 +5,14 @@ import MessageSection from '@/components/MessageSection';
 import Team from '@/components/Team';
 import Projects from './Projects';
 import Blogs from '@/components/Blogs';
+import Header from '@/components/Header';
 
 export default function Home() {
 
   return (
     <main>
       <section>
+        <Header/>
         <Slider />
         <MessageSection/>
         <Expertise/>
