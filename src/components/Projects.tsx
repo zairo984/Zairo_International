@@ -22,26 +22,27 @@ const Projects = () => {
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mt-16">
-        {projects.map((project) => (
-          <a
-            key={project.id}
-            href={project.link}
-            className="group relative block rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105"
-          >
-            {/* Project Image */}
-            <img
-              src={project.image}
-              alt={project.name}
-              className="w-full h-[280px]"
-            />
+  {projects.map((project) => (
+    <a
+      key={project.id}
+      href={project.link}
+      className="group relative block w-full sm:w-[30rem] lg:w-[30rem] rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105"
+    >
+      {/* Project Image */}
+      <img
+        src={project.image}
+        alt={project.name}
+        className="w-full h-[20rem] py-10 px-12"
+      />
 
-            {/* Overlay with Flip Animation */}
-            <div className="absolute -inset-4 bg-black bg-opacity-80 z-10 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-              <h3 className="text-red-600 text-xl font-bold">{project.name}</h3>
-            </div>
-          </a>
-        ))}
+      {/* Overlay with Flip Animation */}
+      <div className="absolute inset-0 bg-black bg-opacity-80 z-10 flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+        <h3 className="text-red-600 text-xl font-bold">{project.name}</h3>
       </div>
+    </a>
+  ))}
+</div>
+
     </div>
   );
 };

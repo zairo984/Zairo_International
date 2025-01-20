@@ -64,7 +64,7 @@ const Blogs = () => {
       <h1 className="text-white text-5xl sm:text-6xl font-bold mt-4">
         Read Our Latest News
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 ">
         {blogs.map((blog) => (
           <div
             key={blog.id}
@@ -79,16 +79,24 @@ const Blogs = () => {
               />
             </div>
             {/* Blog Content */}
-            <div className="p-4">
-              <h3 className="text-xl font-bold text-gray-800 group-hover:text-red-600 transition-colors duration-300">
-                {blog.name}
-              </h3>
-              <p className="text-sm text-gray-500">{blog.date}</p>
+            <div>
+            <div className="p-4 bg-[#132333] scale-y-0 origin-bottom transition-transform duration-500 ease-in-out group-hover:scale-y-100 group">
+              <div>
+                <h3 className="text-xl font-bold text-black group-hover:text-white transition-colors duration-300">
+                  {blog.name}
+                </h3>
+                <p className="text-sm text-gray-500 group-hover:text-red-500 transition-colors duration-300">
+                  {blog.date}
+                </p>
+              </div>
             </div>
+            </div>
+
+
             {/* Bottom Section */}
             <div className="flex items-center justify-between p-4 border-t border-gray-200">
               <div className="flex items-center gap-2 group-hover:text-red-600 transition-colors duration-300">
-                <div className="p-2 bg-red-500 text-white rounded-full group-hover:bg-red-600">
+                <div className="p-2 bg-red-600 text-white rounded-full group-hover:bg-black">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
