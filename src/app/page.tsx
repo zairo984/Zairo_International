@@ -3,6 +3,8 @@ import 'animate.css';
 import Expertise from '@/components/Expertise';
 import MessageSection from '@/components/MessageSection';
 import Team from '@/components/Team';
+import Projects from './Projects';
+import Blogs from '@/components/Blogs';
 
 export default function Home() {
 
@@ -15,6 +17,13 @@ export default function Home() {
         <section>
           <Team/>
         </section>
+        <section>
+          <Blogs/>
+        </section>
+        <section>
+          <Projects/>
+        </section>
+        
       </section>
         
     </main>

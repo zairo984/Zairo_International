@@ -3,16 +3,9 @@
 import ceo from '@/images/ceo.webp';
 import Image from 'next/image';
 import 'animate.css';
-import WOW from 'wowjs';
-import { useEffect } from 'react';
 
 
 const MessageSection = () => {
-
-    useEffect(() => {
-        new WOW.WOW().init(); // Initialize WOW.js
-      }, []);
-
   return (
     <div className="my-[20px] mx-[120px] grid h-screen grid-cols-12 ">
       {/* Left Column with Image */}

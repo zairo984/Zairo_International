@@ -153,45 +153,6 @@ a.btn:hover, button.btn:hover {
   }
 }
 
-/* scale-out */
-
-/* .scale-out-horizontal {
-	animation: scale-out-horizontal 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-}
-
- @keyframes scale-out-horizontal {
-  0% {
-    transform: scaleX(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scaleX(0);
-    opacity: 1;
-  }
-} */
-
-/* scale-in */
-
-/* .scale-in-br {
-	animation: scale-in-br 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-
- @keyframes scale-in-br {
-  0% {
-    transform: scale(0);
-    transform-origin: 100% 100%;
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    transform-origin: 100% 100%;
-    opacity: 1;
-  }
-} */
-
-/* Scale-out animation */
-/* Combined Scale-out Horizontal and Scale-in (Simultaneous) */
-/* Slower Scale-out Horizontal */
 .scale-out-horizontal {
   animation: scale-out-horizontal 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both; /* Duration increased to 1s */
 }
@@ -234,4 +195,34 @@ a.btn:hover, button.btn:hover {
   animation: scale-in-br 0.5s ease both; /* Normal speed for scale-in */
   background-color: black; /* Background change during animation */
   color: white; /* Optional text color change */
+}
+
+.flip-in-hor-bottom {
+	animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+ @keyframes flip-in-hor-bottom {
+  0% {
+    transform: rotateX(80deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-flip {
+  animation: flip 0.5s ease-out forwards;
 }
