@@ -6,6 +6,7 @@ import Team from '@/components/Team';
 import Projects from './Projects';
 import Blogs from '@/components/Blogs';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function Home() {
 
@@ -25,9 +26,10 @@ export default function Home() {
         <section>
           <Projects/>
         </section>
-        
+        <section>b
+          <Footer/>
+        </section>
       </section>
-        
     </main>
   );
 }
