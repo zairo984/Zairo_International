@@ -3,7 +3,7 @@ import logo from '@/images/logo1.webp'
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-10 bg-[#16293c]">
+    <header className="sm:sticky top-0 z-10 bg-[#16293c]">
       <div className="p-4 flex justify-between items-center">
         {/* Logo or Branding */}
         <div className="text-white text-2xl font-bold">

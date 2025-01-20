@@ -79,18 +79,13 @@ const Blogs = () => {
               />
             </div>
             {/* Blog Content */}
-            <div>
-            <div className="p-4 bg-[#132333] scale-y-0 origin-bottom transition-transform duration-500 ease-in-out group-hover:scale-y-100 group">
-              <div>
-                <h3 className="text-xl font-bold text-black group-hover:text-white transition-colors duration-300">
-                  {blog.name}
-                </h3>
-                <p className="text-sm text-gray-500 group-hover:text-red-500 transition-colors duration-300">
-                  {blog.date}
-                </p>
+            <div className="relative w-full p-4 text-center">
+                  <div className="absolute inset-0 bg-[#172b3e] transform scale-y-0 origin-top transition-transform duration-500 ease-in-out group-hover:scale-y-100"></div>
+                  <div className="relative z-9">
+                    <h3 className="text-xl font-semibold group-hover:text-red-600">{blog.name}</h3>
+                    <p className="text-sm text-gray-600 group-hover:text-white">{blog.date}</p>
+                  </div>
               </div>
-            </div>
-            </div>
 
 
             {/* Bottom Section */}
