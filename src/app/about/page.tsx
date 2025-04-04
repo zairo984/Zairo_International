@@ -1,5 +1,5 @@
-import react from "react";
-import Link from "next/link";
+// import react from "react";
+// import Link from "next/link";
 import Image from "next/image";
 import about from "../../images/about.jpg";
 import ceo from "../../images/ceo.webp";

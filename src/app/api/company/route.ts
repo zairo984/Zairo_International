@@ -2,7 +2,7 @@ import { connectDB } from "@/lib/db";
 import Company from "@/models/Company";
 import {NextRequest, NextResponse} from "next/server";
 
-export async function GET(req:NextRequest){
+export async function GET(){
     try{
         await connectDB();
         const comp = await Company.find();

@@ -1,12 +1,12 @@
 
 import { connectDB } from "@/lib/db";
 import Blog from "@/models/blogs";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 
 connectDB();
 
-export async function GET(req: NextRequest){
+export async function GET(){
     try{
         const blog = await Blog.find();
         return NextResponse.json({blog:blog},{status:200});

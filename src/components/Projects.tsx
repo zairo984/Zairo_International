@@ -5,7 +5,7 @@ import workinza from "@/images/Workinza.webp"
 import shopbar from "@/images/shopbar.webp"
 import bronco from "@/images/bronco.webp"
 // import Employe from "../models/Employe";
-import { Card, CardContent, CardDescription, CardFooter, CardTitle } from "./ui/card"
+import { Card} from "./ui/card"
 import { ArrowUpRight } from "lucide-react"
 import { Badge } from "./ui/badge"
 import { cn } from "@/lib/utils"

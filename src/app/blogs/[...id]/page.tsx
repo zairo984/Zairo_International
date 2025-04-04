@@ -2,7 +2,7 @@
 
 // import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+// import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import axios from "axios";
 import { usePathname } from "next/navigation";
 

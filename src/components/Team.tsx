@@ -22,8 +22,9 @@ interface Employee {
   password: string
   allotedArea?: string
   isVerified: boolean
+  isfeatured:boolean
   role: "Admin" | "Advert" | "Content" | "Sales" | "HR" | "Developer" | "Guest"
-  extras: Record<string, any>
+  extras: Record<string,unknown>
   passwordExpiresAt: Date
   forgotPasswordToken?: string
   forgotPasswordTokenExpiry?: Date
@@ -49,7 +50,7 @@ const Team = () => {
       const fetchedBlogs = response.data.emp;
   
       // Filter out "Guest" roles and take the first 12 entries
-      const filteredBlogs = fetchedBlogs.filter((emp: any) => emp.isfeatured === true).slice(0, 12);
+      const filteredBlogs = fetchedBlogs.filter((emp:Employee) => emp.isfeatured === true).slice(0, 12);
       console.log(filteredBlogs); // Log the filtered blogs for debugging
   
       // Set the filtered blogs (not employees)
