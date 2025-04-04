@@ -1,14 +1,9 @@
 "use client"
 
-<<<<<<< HEAD
 import Link from "next/link";
 // import axios from "axios"
 import {FormEvent, useState } from "react"
 import { ChangeEvent } from 'react';
-=======
-// import axios from "axios"
-import {useState } from "react"
->>>>>>> 6a939f7d0b5d9b3f8a9c9788f429e1401faaa79a
 
 
 
