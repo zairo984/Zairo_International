@@ -10,11 +10,11 @@ connectDB();
 export async function GET(req: NextRequest){
     try{
         await connectDB(); // Ensure DB is connected
-        console.log(req)
+        // console.log(req)
 		const urlPath = req.nextUrl.pathname.split("/");
-        console.log("urlPath: ", urlPath);
+        // console.log("urlPath: ", urlPath);
 		const id = urlPath[urlPath.length - 1];
-		console.log("id in backend: ", id);
+		// console.log("id in backend: ", id);
 		if (!mongoose.Types.ObjectId.isValid(id)) {
 			return NextResponse.json( 
 				{ error: "Invalid product ID" },

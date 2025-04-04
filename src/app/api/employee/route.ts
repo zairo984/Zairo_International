@@ -1,12 +1,12 @@
 
 import { connectDB } from "@/lib/db";
 import Employees from "@/models/employee";
-import { NextRequest, NextResponse } from "next/server";
+import {  NextResponse } from "next/server";
 
 
 connectDB();
 
-export async function GET(req: NextRequest){
+export async function GET(){
     try{
         const emp = await Employees.find();
         return NextResponse.json({emp:emp},{status:200});

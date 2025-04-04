@@ -1,6 +1,6 @@
 
 import { connectDB } from "@/lib/db";
-import Blog from "@/models/blogs";
+// import Blog from "@/models/blogs";
 import { NextRequest, NextResponse } from "next/server";
 import mongoose from "mongoose";
 import Company from "@/models/Company";

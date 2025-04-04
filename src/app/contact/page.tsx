@@ -1,7 +1,9 @@
 "use client"
 
-import axios from "axios"
-import { useEffect, useState } from "react"
+import Link from "next/link";
+// import axios from "axios"
+import {FormEvent, useState } from "react"
+import { ChangeEvent } from 'react';
 
 
 
@@ -20,13 +22,13 @@ const ContactUs = () => {
         supportEmail: string;
       }
       
-      const [contactData, setContactData] = useState<ContactData>({
+      const contactData = {
         offices: [
           { city: "Mumbai", address: "264, Vaswani Chambers Dr Annie Besant Rd, Mumbai, Maharashtra, 400030" ,phone:"91 9187659083", email:"developer01@zairo.com"},
           { city: "Delhi", address: "32, Sector 32, Gurgaon - 122003" ,phone:"91 9187659083", email:"developer01@zairo.com" },
         ],
         supportEmail: "support@example.com",
-      })
+      }
 
   interface FormData {
     name: string;
@@ -65,12 +67,13 @@ const ContactUs = () => {
 //     fetchData()
 //   }, [])
 
-  const handleInputChange = (e:any) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+const handleInputChange = (e: ChangeEvent) => {
+  const target = e.target as HTMLInputElement;
+  const { name, value } = target;
+  setFormData((prev) => ({ ...prev, [name]: value }));
+}
 
-  const handleSubmit = async (e:any) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
 
@@ -136,9 +139,9 @@ const ContactUs = () => {
       {/* Breadcrumb */}
       <div className="container mx-auto px-4 py-2">
         <div className="text-sm text-gray-500 mb-6">
-          <a href="/" className="hover:text-blue-600">
+          <Link href="/" className="hover:text-blue-600">
             Home
-          </a>{" "}
+          </Link>{" "}
           &gt; <span className="text-gray-700">Contact Us</span>
         </div>
       </div>
@@ -154,7 +157,7 @@ const ContactUs = () => {
             }}
           ></div>
           <div className="relative z-10">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">We'd Love to Hear From You</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">We&apos;d Love to Hear From You</h1>
             <p className="text-xl max-w-2xl mx-auto opacity-90">
               Whether you have a question about our services, pricing, or anything else, our team is ready to answer all
               your questions.
@@ -385,7 +388,7 @@ const ContactUs = () => {
                     />
                   </svg>
                   <h3 className="text-xl font-bold mb-2">Message Sent Successfully!</h3>
-                  <p className="mb-4">Thank you for reaching out. We'll get back to you as soon as possible.</p>
+                  <p className="mb-4">Thank you for reaching out. We&apos;ll get back to you as soon as possible.</p>
                   <button onClick={() => setSubmitSuccess(false)} className="text-blue-600 font-medium hover:underline">
                     Send another message
                   </button>
@@ -524,7 +527,7 @@ const ContactUs = () => {
                       1
                     </div>
                     <div>
-                      <p className="text-gray-700">We'll review your message and route it to the right department</p>
+                      <p className="text-gray-700">We&apos;ll review your message and route it to the right department</p>
                     </div>
                   </li>
                   <li className="flex">
@@ -541,7 +544,7 @@ const ContactUs = () => {
                     </div>
                     <div>
                       <p className="text-gray-700">
-                        We'll work together to address your needs or answer your questions
+                        We&apos;ll work together to address your needs or answer your questions
                       </p>
                     </div>
                   </li>
@@ -565,7 +568,7 @@ const ContactUs = () => {
             </div>
 
             <div className="mt-10 text-center">
-              <p className="text-gray-700 mb-4">Didn't find what you were looking for?</p>
+              <p className="text-gray-700 mb-4">Didn&apos;t find what you were looking for?</p>
               <button
                 onClick={() => setActiveTab("contact")}
                 className="inline-flex items-center px-6 py-3 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors"
