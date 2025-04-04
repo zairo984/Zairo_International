@@ -1,32 +1,13 @@
 "use client"
 
-<<<<<<< HEAD
 import Link from "next/link";
 // import axios from "axios"
 import {FormEvent, useState } from "react"
 import { ChangeEvent } from 'react';
-=======
-// import axios from "axios"
-import {useState } from "react"
->>>>>>> 6a939f7d0b5d9b3f8a9c9788f429e1401faaa79a
 
 
 
 const ContactUs = () => {
-
-
-    interface Office {
-        city: string;
-        address: string;
-        phone: string;
-        email: string;
-      }
-
-      interface ContactData {
-        offices: Office[];
-        supportEmail: string;
-      }
-      
       const contactData = {
         offices: [
           { city: "Mumbai", address: "264, Vaswani Chambers Dr Annie Besant Rd, Mumbai, Maharashtra, 400030" ,phone:"91 9187659083", email:"developer01@zairo.com"},
