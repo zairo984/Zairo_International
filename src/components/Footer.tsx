@@ -1,7 +1,26 @@
+"use client";
 import React from "react";
 import logo from "@/images/logo1.webp"; // Replace with your actual logo path
 
+import {useRouter, usePathname } from "next/navigation";
+
 const Footer = () => {
+  const router = useRouter();
+  
+    const pathname = usePathname(); // ✅ Get current page
+  
+    const handleScroll = (sectionId: string, page: string = "/") => {
+      if (pathname !== page) {
+        // ✅ Navigate first if on a different page
+        router.push(`${page}#${sectionId}`);
+      } else {
+        // ✅ Scroll directly if already on the page
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    };
   return (
     <footer className="bg-[#111f2e] text-white py-12">
       <div className="container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -21,19 +40,19 @@ const Footer = () => {
           <h3 className="text-xl font-semibold">Navigation</h3>
           <ul className="space-y-2">
             <li>
-              <a href="#home" className="hover:text-red-600 transition-colors duration-300">Home</a>
+              <a href="/" className="hover:text-red-600 transition-colors duration-300">Home</a>
             </li>
             <li>
-              <a href="#about" className="hover:text-red-600 transition-colors duration-300">About Us</a>
+              <a href="/about" className="hover:text-red-600 transition-colors duration-300">About Us</a>
             </li>
             <li>
-              <a href="#services" className="hover:text-red-600 transition-colors duration-300">Services</a>
+              <a onClick={()=> handleScroll("mySection")} className="hover:text-red-600 transition-colors duration-300">Services</a>
             </li>
             <li>
-              <a href="#contact" className="hover:text-red-600 transition-colors duration-300">Contact Us</a>
+              <a href="/contact" className="hover:text-red-600 transition-colors duration-300">Contact Us</a>
             </li>
             <li>
-              <a href="#blog" className="hover:text-red-600 transition-colors duration-300">Our Blog</a>
+              <a href="/blog" className="hover:text-red-600 transition-colors duration-300">Our Blog</a>
             </li>
           </ul>
         </div>
@@ -43,13 +62,13 @@ const Footer = () => {
           <h3 className="text-xl font-semibold">Quick Links</h3>
           <ul className="space-y-2">
             <li>
-              <a href="#help" className="hover:text-red-600 transition-colors duration-300">Help</a>
+              <a href="/contact" className="hover:text-red-600 transition-colors duration-300">Help</a>
             </li>
             <li>
-              <a href="#support" className="hover:text-red-600 transition-colors duration-300">Support</a>
+              <a href="/contact" className="hover:text-red-600 transition-colors duration-300">Support</a>
             </li>
             <li>
-              <a href="#clients" className="hover:text-red-600 transition-colors duration-300">Clients</a>
+              <a onClick={()=> handleScroll("projects")} className="hover:text-red-600 transition-colors duration-300">Clients</a>
             </li>
             <li>
               <a href="#shop" className="hover:text-red-600 transition-colors duration-300">Shop</a>
@@ -61,7 +80,7 @@ const Footer = () => {
         </div>
 
         {/* Newsletter */}
-        <div className="space-y-4">
+        {/* <div className="space-y-4">
           <h3 className="text-xl font-semibold">Newsletter</h3>
           <p>Subscribe our newsletter to get the latest news & updates</p>
           <form action="#" method="POST">
@@ -78,7 +97,7 @@ const Footer = () => {
               Subscribe
             </button>
           </form>
-        </div>
+        </div> */}
       </div>
 
       {/* Copyright Section */}

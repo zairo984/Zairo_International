@@ -1,134 +1,224 @@
-'use client'
-import ceo from "@/images/ceo.webp"
+"use client"
+import { useEffect, useState } from "react"
+import axios from "axios"
+import { User, Users, Briefcase, ChevronRight, Loader2 } from "lucide-react"
+
+interface Employee {
+  name: string
+  email: string
+  profilePic: string
+  nationality: string
+  gender: "Male" | "Female" | "Other"
+  spokenLanguage: string
+  accountNo: string
+  ifsc: string
+  phone: string
+  aadhar: string
+  dateOfJoining: Date
+  experience: number
+  alias: string
+  country: string
+  address: string
+  password: string
+  allotedArea?: string
+  isVerified: boolean
+  role: "Admin" | "Advert" | "Content" | "Sales" | "HR" | "Developer" | "Guest"
+  extras: Record<string, any>
+  passwordExpiresAt: Date
+  forgotPasswordToken?: string
+  forgotPasswordTokenExpiry?: Date
+  verifyToken?: string
+  verifyTokenExpiry?: Date
+  otpToken?: number
+  otpTokenExpiry?: Date
+  _id?: string
+}
 
 const Team = () => {
-  const members = [
-    {
-      id: 1,
-      name: "Zaid Bin Hashmat",
-      designation: "C.E.O.",
-      image: ceo.src
-    },
-    {
-      id: 2,
-      name: "Ankita Nigam",
-      designation: "C.O.O.",
-      image: ceo.src
-    },
-    {
-      id: 3,
-      name: "Shantanu Verma",
-      designation: "Investor",
-      image: ceo.src
-    },
-    {
-      id: 4,
-      name: "Palak Khetan",
-      designation: "Investor",
-      image: ceo.src
-    },
-    {
-      id: 5,
-      name: "Ayushi Gupta",
-      designation: "Sales Head",
-      image: ceo.src
-    },
-    {
-      id: 6,
-      name: "Vikas Gurele",
-      designation: "Head of Service Team",
-      image: ceo.src
-    },
-    {
-      id: 7,
-      name: "Chhaya Gautam",
-      designation: "Sr. Legal Advisor",
-      image: ceo.src
-    },
-    {
-      id: 8,
-      name: "Sharda Srivastava",
-      designation: "H.R. Manager",
-      image: ceo.src
-    },
-    {
-      id: 9,
-      name: "Aviral Mishra",
-      designation: "Web Developer",
-      image: ceo.src
-    },
-    {
-      id: 10,
-      name: "Aniket Yadav",
-      designation: "Web Developer",
-      image: ceo.src
-    },
-    {
-      id: 11,
-      name: "Some random name",
-      designation: "Web Developer",
-      image: ceo.src
-    },
-    {
-      id: 12,
-      name: "Ayushi Dubey",
-      designation: "Marketing Head",
-      image: ceo.src
-    },
-  ]
+  const [employees, setEmployees] = useState<Employee[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+  
+      const response = await axios.get("/api/employee");
+  
+      // Assuming response.data.blog contains an array of employee data (or blogs)
+      const fetchedBlogs = response.data.emp;
+  
+      // Filter out "Guest" roles and take the first 12 entries
+      const filteredBlogs = fetchedBlogs.filter((emp: any) => emp.isfeatured === true).slice(0, 12);
+      console.log(filteredBlogs); // Log the filtered blogs for debugging
+  
+      // Set the filtered blogs (not employees)
+      setEmployees(filteredBlogs); // Set the state with filtered data
+    } catch (error) {
+      console.log(error);
+      setError("Failed to load team members. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
+  // Function to get role-specific icon
+  const getRoleIcon = (role: string) => {
+    switch (role) {
+      case "Admin":
+        return <User className="w-5 h-5 mr-1" />
+      case "Sales":
+        return <Briefcase className="w-5 h-5 mr-1" />
+      default:
+        return <Users className="w-5 h-5 mr-1" />
+    }
+  }
 
   return (
-    <div className="py-12">
-      <div className="team-one__top relative flex items-center justify-center gap-[500px] mb-[57px] mt-[100px]">
-        <div className="sec-title flex flex-col mr-4">
-          <div className="sub-title">
-            <h5 className="text-xl font-semibold text-red-600">OUR TEAM MEMBERS</h5><br />
-          </div>
-          <h2 className="text-4xl font-bold">Our Talented Team <br />Members Behind Zairo</h2>
-        </div>
-        <div className="btn-box flex justify-center text-center">
-          <a
-            className="thm-btn text-white bg-red-600 px-6 py-3 rounded-lg hover:scale-out-horizontal hover:scale-in-br relative"
-            href="#"
-          >
-            <span
-              className="absolute inset-0 flex justify-center items-center text-white bg-black text-center px-6 py-3 rounded-lg scale-0  transition-all duration-500"
-            >
-              <span className="txt">JOIN OUR TEAM</span>
-            </span>
-            <span className="txt font-semibold">JOIN OUR TEAM</span>
-          </a>
-        </div>
+    <div className="py-16 bg-gradient-to-b from-white to-gray-50">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 right-0 w-64 h-64 bg-red-600 rounded-full opacity-5 transform translate-x-1/2"></div>
+        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-red-600 rounded-full opacity-5 transform -translate-x-1/2"></div>
       </div>
-      <section>
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
-            {members.map((member) => (
-              <div
-                key={member.id}
-                className="bg-white overflow-hidden flex flex-col items-center h-[350px] transition-transform transform hover:scale-105 border border-gray-200 rounded-md shadow-lg hover:shadow-2xl group"
-              >
-                <div className="h-40 w-40 rounded-full overflow-hidden mt-6 shadow-md">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="h-full w-full object-cover"
-                  />
+
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Header Section */}
+        <div className="flex flex-col lg:flex-row items-center justify-between mb-16 gap-8">
+          <div className="text-center lg:text-left max-w-2xl">
+            <div className="inline-block relative mb-4">
+              <h5 className="text-xl font-semibold text-red-600 relative z-10">OUR TEAM MEMBERS</h5>
+              <div className="absolute bottom-0 left-0 h-3 w-full bg-red-100 -z-10 transform -rotate-1"></div>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+              Our Talented Team <br className="hidden md:block" />
+              <span className="relative">
+                Members Behind
+                <span className="text-red-600"> Zairo</span>
+                <svg
+                  className="absolute -bottom-2 left-0 w-full"
+                  height="6"
+                  viewBox="0 0 200 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 3C50 0.5 150 0.5 200 3" stroke="#EF4444" strokeWidth="5" strokeLinecap="round" />
+                </svg>
+              </span>
+            </h2>
+            <p className="text-gray-600 mt-4 max-w-xl">
+              Meet the passionate individuals who make our vision a reality. Our diverse team brings together expertise
+              from various fields.
+            </p>
+          </div>
+
+          <div className="relative group">
+            <a
+              href="/hiring"
+              className="inline-flex items-center px-8 py-4 font-semibold text-white bg-red-600 rounded-lg shadow-lg hover:bg-red-700 transition-all duration-300 overflow-hidden group-hover:pr-12"
+            >
+              <span className="relative z-10">JOIN OUR TEAM</span>
+              <ChevronRight className="absolute right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-3 group-hover:translate-x-0" />
+            </a>
+            <div className="absolute inset-0 w-full h-full bg-red-600 rounded-lg transform scale-105 opacity-20 blur-lg transition-all duration-300 group-hover:opacity-30"></div>
+          </div>
+        </div>
+
+        {/* Team Grid Section */}
+        <div className="relative">
+          {/* Loading State */}
+          {loading && (
+            <div className="flex flex-col items-center justify-center py-20">
+              <Loader2 className="w-12 h-12 text-red-600 animate-spin mb-4" />
+              <p className="text-gray-600">Loading team members...</p>
+            </div>
+          )}
+
+          {/* Error State */}
+          {error && !loading && (
+            <div className="bg-red-50 border-l-4 border-red-600 p-4 mb-8 rounded-md">
+              <div className="flex items-center">
+                <div className="flex-shrink-0">
+                  <svg className="h-5 w-5 text-red-600" viewBox="0 0 20 20" fill="currentColor">
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
                 </div>
-                <div className="relative w-full mt-6 p-4 text-center">
-                  <div className="absolute inset-0 bg-black bg-opacity-70 transform scale-y-0 origin-top transition-transform duration-500 ease-in-out group-hover:scale-y-100"></div>
-                  <div className="relative z-10">
-                    <h3 className="text-xl font-semibold group-hover:text-red-600">{member.name}</h3>
-                    <p className="text-sm text-gray-600 group-hover:text-white">{member.designation}</p>
-                  </div>
+                <div className="ml-3">
+                  <p className="text-sm text-red-600">{error}</p>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          )}
+
+          {/* Team Grid */}
+          {!loading && !error && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+              {employees &&
+                employees.map((member) => (
+                  <div
+                    key={member._id}
+                    className="group relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2"
+                  >
+                    {/* Image Container */}
+                    <div className="h-72 overflow-hidden">
+                      <img
+                        src={member.profilePic || "/placeholder.svg?height=300&width=300"}
+                        alt={member.name}
+                        className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                      />
+
+                      {/* Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                      {/* Role Badge */}
+                      <div className="inline-flex items-center px-3 py-1 rounded-full bg-red-600 text-white text-xs font-medium mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                        {getRoleIcon(member.role)}
+                        <span>{member.role}</span>
+                      </div>
+
+                      {/* Name */}
+                      <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
+
+                      {/* Experience */}
+                      {member.experience && (
+                        <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                          {member.experience} {member.experience === 1 ? "year" : "years"} of experience
+                        </p>
+                      )}
+
+                      {/* Social Icons - Optional */}
+                      
+                    </div>
+                  </div>
+                ))}
+            </div>
+          )}
+
+          {/* Empty State */}
+          {!loading && !error && employees.length === 0 && (
+            <div className="text-center py-16 bg-gray-50 rounded-xl border border-gray-200">
+              <Users className="mx-auto h-12 w-12 text-gray-400" />
+              <h3 className="mt-2 text-lg font-medium text-gray-900">No team members</h3>
+              <p className="mt-1 text-sm text-gray-500">No team members have been added yet.</p>
+            </div>
+          )}
         </div>
-      </section>
+      </div>
     </div>
   )
 }
 
-export default Team;
+export default Team
+
