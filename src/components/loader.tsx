@@ -9,7 +9,7 @@ export default function ZairoLoader() {
 
   useEffect(() => {
     // Ensure loader runs for at least 5 seconds (5000ms)
-    const minDisplayTime = 2000
+    const minDisplayTime = 1000
     const startTime = Date.now()
 
     // Update progress gradually over 5 seconds

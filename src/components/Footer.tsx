@@ -4,6 +4,7 @@ import logo from "@/images/logo1.webp"; // Replace with your actual logo path
 
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
+import { Facebook, Instagram, Twitter } from "lucide-react";
 
 const Footer = () => {
 	const router = useRouter();
@@ -34,10 +35,37 @@ const Footer = () => {
 						<p>Email: email@example.com</p>
 						<p>Phone: (123) 456-7890</p>
 					</address>
+					<div className="space-y-3 flex-col justify-end pr-9">
+					<h5 className="text-base font-semibold">Be a Part of our Community</h5>
+					<div className="flex  space-x-6">
+						<Link
+							href="https://facebook.com"
+							target="_blank"
+							aria-label="Facebook"
+						>
+							<Facebook className="w-4 h-4 hover:text-blue-500 transition-all" />
+						</Link>
+						<Link
+							href="https://instagram.com"
+							target="_blank"
+							aria-label="Instagram"
+						>
+							<Instagram className="w-4 h-4 hover:text-pink-500 transition-all" />
+						</Link>
+						<Link
+							href="https://twitter.com"
+							target="_blank"
+							aria-label="Twitter"
+						>
+							<Twitter className="w-4 h-4 hover:text-blue-400 transition-all" />
+						</Link>
+					</div>
+				
+			</div>
 				</div>
 
 				{/* Navigation Links */}
-				<div className="space-y-4">
+				<div className="space-y-2 flex flex-col">
 					<h3 className="text-xl font-semibold">Navigation</h3>
 					<Link href="/">
 						<span className="hover:text-red-600 transition-colors duration-300">
@@ -68,7 +96,7 @@ const Footer = () => {
 				</div>
 
 				{/* Quick Links */}
-				<div className="space-y-4">
+				<div className="space-y-2 flex flex-col">
 					<h3 className="text-xl font-semibold">Quick Links</h3>
 					<Link href="/contact">
 						<span className="hover:text-red-600 transition-colors duration-300">
@@ -99,9 +127,9 @@ const Footer = () => {
 				</div>
 
 				{/* Newsletter */}
-				{/* <div className="space-y-4">
-          <h3 className="text-xl font-semibold">Newsletter</h3>
-          <p>Subscribe our newsletter to get the latest news & updates</p>
+				<div className="space-y-4">
+          <h3 className="text-xl font-semibold">Join Our Team</h3>
+          <p>Be a Part of our Team</p>
           <form action="#" method="POST">
             <input
               type="email"
@@ -110,13 +138,13 @@ const Footer = () => {
               required
             />
             <button
-              type="submit"
+              onClick={(e)=> window.location.href = "/hiring"}
               className="w-full mt-4 bg-red-600 text-white p-2 rounded-md hover:bg-red-700 transition duration-300"
             >
-              Subscribe
+			  Contact Us
             </button>
           </form>
-        </div> */}
+        </div>
 			</div>
 
 			{/* Copyright Section */}
