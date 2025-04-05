@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { User, Phone, Mail, Briefcase, Wrench, FileText, Send, Loader2 } from "lucide-react";
 import { toast } from "react-toastify";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api/"; // Update this
+// const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api/"; // Update this
 
 interface FormData {
   name: string;
@@ -50,7 +50,7 @@ const CareerForm: React.FC = () => {
     });
 
     try {
-      const resp = await axios.post(`${BASE_URL}add-career`, formDataToSend, {
+      const resp = await axios.post(`api/hiring`, formDataToSend, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

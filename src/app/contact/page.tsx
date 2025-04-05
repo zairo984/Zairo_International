@@ -1,5 +1,7 @@
 "use client"
 
+import PageTransition from "@/components/page-transition";
+import axios from "axios";
 import Link from "next/link";
 // import axios from "axios"
 import {FormEvent, useState } from "react"
@@ -66,7 +68,7 @@ const handleInputChange = (e: ChangeEvent) => {
     // Simulate API call
     try {
       // Replace with actual API call when ready
-      // await axios.post(`${BASE_URL}/contact-form`, formData);
+      await axios.post(`api/contact`, formData);
 
       // Simulate network delay
       await new Promise((resolve) => setTimeout(resolve, 1000))
@@ -114,6 +116,7 @@ const handleInputChange = (e: ChangeEvent) => {
   ]
 
   return (
+    <PageTransition>
     <div className="bg-gradient-to-b from-blue-50 to-white min-h-screen pt-20">
       {/* <Helmet>
         <meta charSet="utf-8" />
@@ -622,6 +625,7 @@ const handleInputChange = (e: ChangeEvent) => {
         </button>
       </div>
     </div>
+    </PageTransition>
   )
 }
 

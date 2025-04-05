@@ -15,14 +15,13 @@ export interface ICareer extends Document {
 const CareerSchema: Schema = new Schema(
   {
     name: { type: String, required: true },
-    phoneNumber: { type: String, required: true },
-    email: { type: String, required: true },
-    currentDesignation: { type: String, required: true },
-    position: { type: String, required: true },
-    skills: { type: String, required: true },
-    description: { type: String, required: true },
-    resume: { type: String, required: true }, // Store file path
-    createdAt: { type: Date, default: Date.now },
+  phoneNumber: { type: String, required: true },
+  email: { type: String, required: true },
+  currentDesignation: { type: String, required: true },
+  position: { type: String, required: true },
+  skills: { type: String, required: true },
+  description: { type: String, required: true },
+  resume: { type: String, required: true },
   },
   { timestamps: true }
 );
