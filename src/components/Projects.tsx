@@ -1,9 +1,9 @@
 "use client"
-import vs from "@/images/vs.webp"
-import ttt from "@/images/ttt.webp"
-import workinza from "@/images/Workinza.webp"
-import shopbar from "@/images/shopbar.webp"
-import bronco from "@/images/bronco.webp"
+// import vs from "@/images/vs.webp"
+// import ttt from "@/images/ttt.webp"
+// import workinza from "@/images/Workinza.webp"
+// import shopbar from "@/images/shopbar.webp"
+// import bronco from "@/images/bronco.webp"
 // import Employe from "../models/Employe";
 import { Card} from "./ui/card"
 import { ArrowUpRight } from "lucide-react"
@@ -14,13 +14,13 @@ import axios from "axios"
 // import { CardHeader } from "@mui/material";
 
 const Projects = () => {
-  const projects = [
-    { id: 1, name: "The Vacation Saga", image: vs.src, link: "/vacation" },
-    { id: 2, name: "The Tech Tunes", image: ttt.src, link: "/techtunes" },
-    { id: 3, name: "Workinza", image: workinza.src, link: "/workinza" },
-    { id: 4, name: "Shopbar", image: shopbar.src, link: "/shopbar" },
-    { id: 5, name: "Bronco", image: bronco.src, link: "/bronco" },
-  ]
+  // const projects = [
+  //   { id: 1, name: "The Vacation Saga", image: vs.src, link: "/vacation" },
+  //   { id: 2, name: "The Tech Tunes", image: ttt.src, link: "/techtunes" },
+  //   { id: 3, name: "Workinza", image: workinza.src, link: "/workinza" },
+  //   { id: 4, name: "Shopbar", image: shopbar.src, link: "/shopbar" },
+  //   { id: 5, name: "Bronco", image: bronco.src, link: "/bronco" },
+  // ]
 
   interface myCompany{
     name: string,
@@ -39,7 +39,7 @@ const Projects = () => {
       try{
         const response = await axios.get("/api/company");
         console.log(response)
-        setProject(response?.data.comp || projects);
+        setProject(response?.data.comp);
 
       }catch(error){
         console.log(error);
@@ -103,11 +103,7 @@ const Projects = () => {
                     <ArrowUpRight className="w-5 h-5" />
                   </div>
                   </div>
-                </div>
-
-                
-
-                
+                </div> 
               </a>
             </Card>
           ))}
