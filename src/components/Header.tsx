@@ -11,6 +11,7 @@ const Header = () => {
   const ref = useRef<HTMLDivElement>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
+  
 
   useEffect(() => {
     if (!ref.current) return
