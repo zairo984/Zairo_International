@@ -3,9 +3,11 @@ import about from "../../images/about.jpg";
 // import ceo from "../../images/ceo.webp";
 import about1 from "../../images/about1.jpg";
 import about2 from "../../images/about2.jpg";
+import PageTransition from "@/components/page-transition";
 
 const About = () => {
   return (
+    <PageTransition>
     <div className="bg-white">
       {/* Hero Banner */}
       <div className="w-full h-[20rem] relative">
@@ -241,6 +243,7 @@ const About = () => {
         </div>
       </div>
     </div>
+    </PageTransition>
   );
 };
 

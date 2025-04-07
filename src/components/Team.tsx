@@ -60,7 +60,7 @@ const Team = () => {
         duration: 0.5,
         scrollTrigger: {
           trigger: box,
-          start: "top 80%",
+          start: "top 90%",
           end: "top 30%",
           scrub: false,
           toggleActions: "play none none reverse",
@@ -73,7 +73,7 @@ const Team = () => {
         duration: 0.5,
         scrollTrigger: {
           trigger: box2,
-          start: "top 80%",
+          start: "top 90%",
           end: "top 30%",
           scrub: false,
           toggleActions: "play none none reverse",
@@ -88,7 +88,7 @@ const Team = () => {
         duration: 0.6,
         scrollTrigger: {
           trigger: box,
-          start: "top 80%",
+          start: "top 90%",
           toggleActions: "play none none reverse",
         },
       });
@@ -101,7 +101,7 @@ const Team = () => {
       delay:1,
       scrollTrigger: {
         trigger: box4,
-        start: "top 70%",
+        start: "top 90%",
         end: "top 30%",
         scrub: false,
         toggleActions: "play none none reverse",
@@ -109,12 +109,12 @@ const Team = () => {
     })
     gsap.from(box5,{
       y:30,
-      opacity:0,
+      opacity:80,
       duration:0.2,
 
       scrollTrigger: {
         trigger: box5,
-        start: "top 100%",
+        start: "top 90%",
         end: "top 30%",
         scrub: false,
         toggleActions: "play none none reverse",
