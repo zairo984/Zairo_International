@@ -37,7 +37,7 @@ export default function MessageSection() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
         {/* Left Column with Image */}
         <div
-          className="lg:col-span-5 relative h-[500px] md:h-[600px] lg:h-[700px] rounded-2xl overflow-hidden shadow-lg"
+          className="lg:col-span-5 box1 relative h-[500px] md:h-[600px] lg:h-[700px] rounded-2xl overflow-hidden shadow-lg"
           ref={imageRef}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30 z-10"></div>
@@ -64,7 +64,7 @@ export default function MessageSection() {
         </div>
 
         {/* Right Column */}
-        <div className="lg:col-span-7 flex flex-col justify-center">
+        <div className="lg:col-span-7 box2 flex flex-col justify-center">
           <div className="space-y-6">
             <span className="inline-block text-red-600 font-semibold text-lg tracking-wide">Message from the CEO</span>
 

@@ -25,7 +25,7 @@ const Footer = () => {
 	};
 	return (
 		<footer className="bg-[#111f2e] text-white py-12">
-			<div className="container mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+			<div className="container box5 mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
 				{/* Logo and Address */}
 				<div className="space-y-4">
 					<img src={logo.src} alt="Logo" className="h-12" />

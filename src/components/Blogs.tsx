@@ -68,7 +68,7 @@ const Blogs = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section header with animated underline */}
-        <div className="inline-block group">
+        <div className="inline-block box1 group">
           <h2 className="text-red-600 text-2xl font-semibold mb-2">Our Blog Post</h2>
           <div className="h-1 w-0 bg-red-600 group-hover:w-full transition-all duration-700 mx-auto"></div>
         </div>
@@ -82,7 +82,7 @@ const Blogs = () => {
 
         {/* Loading state with skeleton */}
         {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 box3 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[1, 2, 3].map((i) => (
               <Card key={i} className="bg-[#111827] border-0 overflow-hidden">
                 <Skeleton className="w-full h-52" />
@@ -102,11 +102,11 @@ const Blogs = () => {
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1  box3 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogs.map((blog) => (
               <Card
                 key={blog._id}
-                className="group bg-gradient-to-br from-[#172b3e] to-[#0f1c2a] border-0 rounded-xl shadow-xl overflow-hidden hover:shadow-2xl hover:shadow-red-600/20 transition-all duration-500 transform hover:-translate-y-2"
+                className="group  bg-gradient-to-br from-[#172b3e] to-[#0f1c2a] border-0 rounded-xl shadow-xl overflow-hidden hover:shadow-2xl hover:shadow-red-600/20 transition-all duration-500 transform hover:-translate-y-2"
               >
                 {/* Blog Image with overlay */}
                 <div className="relative overflow-hidden h-52">

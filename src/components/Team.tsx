@@ -1,7 +1,9 @@
 "use client"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import axios from "axios"
 import { User, Users, Briefcase, ChevronRight, Loader2 } from "lucide-react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 interface Employee {
   name: string
@@ -34,11 +36,101 @@ interface Employee {
   otpTokenExpiry?: Date
   _id?: string
 }
+gsap.registerPlugin(ScrollTrigger);
+
 
 const Team = () => {
   const [employees, setEmployees] = useState<Employee[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const ref = useRef(null);
+  
+  useEffect(() => {
+    if (employees.length === 0) return;
+  
+    const box1 = document.querySelectorAll(".box1");
+    const box2 = document.querySelectorAll(".box2");
+    const box3 = document.querySelectorAll(".box3");
+    const box4 = document.querySelectorAll(".box4");
+    const box5 = document.querySelectorAll(".box5")
+    box1.forEach((box) => {
+      gsap.from(box, {
+        x: -100,
+        opacity: 0,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: box,
+          start: "top 80%",
+          end: "top 30%",
+          scrub: false,
+          toggleActions: "play none none reverse",
+        },
+      });
+    });
+      gsap.from(box2, {
+        x: 100,
+        opacity: 0,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: box2,
+          start: "top 80%",
+          end: "top 30%",
+          scrub: false,
+          toggleActions: "play none none reverse",
+        },
+    });
+    // Animate box3 - SCALE + BLUR
+    box3.forEach((box) => {
+      gsap.from(box, {
+        scale: 0.9,
+        opacity: 0,
+        filter: "blur(10px)",
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: box,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    });
+    
+    gsap.from(box4,{
+      x:100,
+      opacity:70,
+      duration:0.9,
+      delay:1,
+      scrollTrigger: {
+        trigger: box4,
+        start: "top 70%",
+        end: "top 30%",
+        scrub: false,
+        toggleActions: "play none none reverse",
+      },
+    })
+    gsap.from(box5,{
+      y:30,
+      opacity:0,
+      duration:0.2,
+
+      scrollTrigger: {
+        trigger: box5,
+        start: "top 100%",
+        end: "top 30%",
+        scrub: false,
+        toggleActions: "play none none reverse",
+      },
+    })
+  
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+    // Very important to recalculate
+  }, [employees.length]);
+  
 
   const fetchData = async () => {
     try {
@@ -81,7 +173,7 @@ const Team = () => {
   }
 
   return (
-    <div className="py-16 bg-gradient-to-b from-white to-gray-50">
+    <div ref={ref} className="py-16 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 right-0 w-64 h-64 bg-red-600 rounded-full opacity-5 transform translate-x-1/2"></div>
@@ -91,7 +183,7 @@ const Team = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row items-center justify-between mb-16 gap-8">
-          <div className="text-center lg:text-left max-w-2xl">
+          <div className="box1 text-center lg:text-left max-w-2xl">
             <div className="inline-block relative mb-4">
               <h5 className="text-xl font-semibold text-red-600 relative z-10">OUR TEAM MEMBERS</h5>
               <div className="absolute bottom-0 left-0 h-3 w-full bg-red-100 -z-10 transform -rotate-1"></div>
@@ -102,7 +194,7 @@ const Team = () => {
                 Members Behind
                 <span className="text-red-600"> Zairo</span>
                 <svg
-                  className="absolute -bottom-2 left-0 w-full"
+                  className="absolute -bottom-2 box4 left-0 w-full"
                   height="6"
                   viewBox="0 0 200 6"
                   fill="none"
@@ -118,7 +210,7 @@ const Team = () => {
             </p>
           </div>
 
-          <div className="relative group">
+          <div className="box2 relative group">
             <a
               href="/hiring"
               className="inline-flex items-center px-8 py-4 font-semibold text-white bg-red-600 rounded-lg shadow-lg hover:bg-red-700 transition-all duration-300 overflow-hidden group-hover:pr-12"
@@ -145,7 +237,7 @@ const Team = () => {
             <div className="bg-red-50 border-l-4 border-red-600 p-4 mb-8 rounded-md">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <svg className="h-5 w-5 text-red-600" viewBox="0 0 20 20" fill="currentColor">
+                  <svg className="h-5 w-5 box4 text-red-600" viewBox="0 0 20 20" fill="currentColor">
                     <path
                       fillRule="evenodd"
                       d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
@@ -162,12 +254,12 @@ const Team = () => {
 
           {/* Team Grid */}
           {!loading && !error && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 box3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
               {employees &&
                 employees.map((member) => (
                   <div
                     key={member._id}
-                    className="group relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2"
+                    className="group  relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2"
                   >
                     {/* Image Container */}
                     <div className="h-72 overflow-hidden">

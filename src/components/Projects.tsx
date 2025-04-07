@@ -61,7 +61,7 @@ const Projects = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Heading with animated underline */}
-        <div className="text-center mb-16">
+        <div className="text-center box1 mb-16">
           <div className="inline-block relative">
             <h2 className="text-red-600 text-xl md:text-3xl mb-4 font-semibold relative inline-block">
               Projects
@@ -75,7 +75,7 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid with improved layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 box3 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {project?.map((project, index) => (
             <Card
               key={project._id}
