@@ -21,6 +21,7 @@ const CareerSchema: Schema = new Schema(
   position: { type: String, required: true },
   skills: { type: String, required: true },
   description: { type: String, required: true },
+  team:{type:String,required:true},
   resume: { type: String, required: true },
   },
   { timestamps: true }

@@ -188,6 +188,7 @@ const Slider = () => {
                       }`}
                     >
                       <button
+                      onClick={()=>window.location.href = "/contact"} 
                         type="button"
                         className="group relative overflow-hidden px-8 py-4 bg-red-600 text-white text-lg rounded-md hover:bg-red-700 transition-all duration-300"
                       >
@@ -199,6 +200,7 @@ const Slider = () => {
                       </button>
 
                       <button
+                      onClick={()=>window.location.href = "/about"}
                         type="button"
                         className="px-8 py-4 border-2 border-white/30 text-white text-lg rounded-md hover:bg-white/10 transition-all duration-300"
                       >
@@ -241,23 +243,23 @@ const Slider = () => {
       </Swiper>
 
       {/* Custom navigation buttons */}
-      <div className="swiper-button-prev !w-12 !h-12 !bg-black/30 !backdrop-blur-sm !rounded-full flex items-center justify-center !text-white hover:!bg-red-600/80 transition-all duration-300 !left-6 !after:hidden">
+      <div className="swiper-button-prev ">
         <ChevronLeft className="w-6 h-6" />
       </div>
-      <div className="swiper-button-next !w-12 !h-12 !bg-black/30 !backdrop-blur-sm !rounded-full flex items-center justify-center !text-white hover:!bg-red-600/80 transition-all duration-300 !right-6 !after:hidden">
+      <div className="swiper-button-next ">
         <ChevronRight className="w-6 h-6" />
       </div>
 
       {/* Social media links */}
       <div className="absolute left-8 bottom-24 z-20 hidden md:flex flex-col space-y-4">
-        <a href="#" className="text-white/70 hover:text-white transition-colors duration-300">
+        <a href="https://www.facebook.com/Zairointernational" className="text-white/70 hover:text-white transition-colors duration-300">
           <div className="w-px h-8 bg-white/30 mx-auto mb-2"></div>
           Facebook
         </a>
-        <a href="#" className="text-white/70 hover:text-white transition-colors duration-300">
-          Twitter
+        <a href="https://www.linkedin.com/company/zairointernational/posts/?feedView=all" className="text-white/70 hover:text-white transition-colors duration-300">
+        LinkedIn
         </a>
-        <a href="#" className="text-white/70 hover:text-white transition-colors duration-300">
+        <a href="https://www.instagram.com/zairointernational/?hl=en" className="text-white/70 hover:text-white transition-colors duration-300">
           Instagram
         </a>
       </div>

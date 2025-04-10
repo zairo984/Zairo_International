@@ -3,7 +3,8 @@
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 import { useEffect, useRef } from "react"
-import ceo from '@/images/ceo.webp';
+import image1 from "@/images/1.webp"
+// import ceo from '@/images/ceo.webp';
 import "animate.css"
 
 export default function MessageSection() {
@@ -44,7 +45,7 @@ export default function MessageSection() {
 
           <Image
             className="w-full h-full object-cover object-center transition-transform duration-700 ease-out hover:scale-105"
-            src={ceo}
+            src={image1}
             alt="CEO Portrait"
             fill
             priority
