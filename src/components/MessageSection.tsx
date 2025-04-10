@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
 import { useEffect, useRef } from "react"
-import ceo from '@/images/ceo.webp';
+import ceo from '@/images/meeting1.jpg'
 import "animate.css"
 
 export default function MessageSection() {
@@ -47,7 +47,7 @@ export default function MessageSection() {
             src={ceo}
             alt="CEO Portrait"
             fill
-            priority
+
           />
 
           <div className="absolute left-6 bottom-16 z-20 flex items-end gap-4">

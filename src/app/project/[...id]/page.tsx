@@ -3,7 +3,7 @@
 import axios from "axios"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
-import { Mail, Phone, MapPin, ArrowLeft, Building, Clock, ExternalLink } from "lucide-react"
+import { Mail, Phone, ArrowLeft, Building, Clock, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
@@ -106,7 +106,7 @@ const Project = () => {
             <CardDescription>The requested project could not be found</CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground">The project you're looking for doesn't exist or has been removed.</p>
+            <p className="text-muted-foreground">The project you&apos;re looking for doesn&apos;t exist or has been removed.</p>
           </CardContent>
           <CardFooter>
             <Button variant="outline" onClick={() => window.history.back()}>
@@ -268,7 +268,7 @@ const Project = () => {
                 <CardContent className="p-6 flex flex-col md:flex-row items-center justify-between gap-4">
                   <div>
                     <h3 className="text-xl font-semibold mb-2">Interested in working with us?</h3>
-                    <p className="text-muted-foreground">Let's discuss how we can help with your next project</p>
+                    <p className="text-muted-foreground">Let&apos;s discuss how we can help with your next project</p>
                   </div>
                   <Button size="lg" className="whitespace-nowrap">
                     Get in Touch
