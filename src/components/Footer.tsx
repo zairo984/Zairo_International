@@ -4,7 +4,7 @@ import logo from "@/images/logo1.webp"; // Replace with your actual logo path
 
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
-import { Facebook, Instagram, Twitter } from "lucide-react";
+import { Facebook, Instagram, Linkedin} from "lucide-react";
 
 const Footer = () => {
 	const router = useRouter();
@@ -30,34 +30,42 @@ const Footer = () => {
 				<div className="space-y-4">
 					<img src={logo.src} alt="Logo" className="h-12" />
 					<address>
-						<p>123 Street Name,</p>
-						<p>City, Country</p>
-						<p>Email: email@example.com</p>
-						<p>Phone: (123) 456-7890</p>
+
+						<p>117/N/70 3rd Floor, Kakadeo,</p>
+						<p>Kanpur, India</p>
+						<p>Email: 	hr@zairointernational.com</p>
+						<p>Phone: (+91) 95198 03665</p>
 					</address>
 					<div className="space-y-3 flex-col justify-end pr-9">
 					<h5 className="text-base font-semibold">Be a Part of our Community</h5>
 					<div className="flex  space-x-6">
 						<Link
-							href="https://facebook.com"
+							href="https://www.facebook.com/Zairointernational"
 							target="_blank"
 							aria-label="Facebook"
 						>
 							<Facebook className="w-4 h-4 hover:text-blue-500 transition-all" />
 						</Link>
 						<Link
-							href="https://instagram.com"
+							href="https://www.instagram.com/zairointernational/?hl=en"
 							target="_blank"
 							aria-label="Instagram"
 						>
 							<Instagram className="w-4 h-4 hover:text-pink-500 transition-all" />
 						</Link>
-						<Link
+						{/* <Link
 							href="https://twitter.com"
 							target="_blank"
 							aria-label="Twitter"
 						>
 							<Twitter className="w-4 h-4 hover:text-blue-400 transition-all" />
+						</Link> */}
+						<Link
+							href="https://www.linkedin.com/company/zairointernational/posts/?feedView=all"
+							target="_blank"
+							aria-label="Linkedin"
+						>
+							<Linkedin className="w-4 h-4 hover:text-blue-400 transition-all" />
 						</Link>
 					</div>
 				

@@ -208,11 +208,11 @@ const Project = () => {
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <MapPin className="h-5 w-5 text-primary mt-0.5" />
-                      <div>
+                      {/* <MapPin className="h-5 w-5 text-primary mt-0.5" />   */}
+                      {/* <div>
                         <p className="text-sm text-muted-foreground">Address</p>
                         <p className="text-foreground">{project.address}</p>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
 

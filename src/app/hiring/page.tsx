@@ -16,7 +16,8 @@ interface FormData {
   position: string;
   skills: string;
   description: string;
-  documents: File | null;
+  team:string;
+  resume: File | null;
 }
 
 const CareerForm: React.FC = () => {
@@ -31,10 +32,11 @@ const CareerForm: React.FC = () => {
     position: "",
     skills: "",
     description: "",
-    documents: null,
+    team:"",
+    resume: null,
   });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, files } = e.target as HTMLInputElement;
     setFormData({ ...formData, [name]: files ? files[0] : value });
   };
@@ -42,19 +44,53 @@ const CareerForm: React.FC = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    const formDataToSend = new FormData();
-    Object.keys(formData).forEach((key) => {
-      const value = formData[key as keyof FormData];
-      if (value) formDataToSend.append(key, value as string | Blob);
-    });
-
+  
     try {
-      const resp = await axios.post(`api/hiring`, formDataToSend, {
-        headers: { "Content-Type": "multipart/form-data" },
+      const storageZoneName = process.env.NEXT_PUBLIC_BUNNY_STORAGE_ZONE;
+      const accessKey = process.env.NEXT_PUBLIC_BUNNY_ACCESS_KEY;
+      const storageUrl = process.env.NEXT_PUBLIC_BUNNY_STORAGE_URL;
+      const placeName = "ZairoInternational"; // Add your place name here
+  
+      // Step 1: Upload the resume to Bunny if provided
+      let resumeUrl = "";
+      if (formData.resume) {
+        const resumeFile = formData.resume;
+        const resumeFormData = new FormData();
+        resumeFormData.append("file", resumeFile);
+  
+        const resumeUploadResp = await axios.put(
+          `${storageUrl}/${storageZoneName}/${placeName}/${resumeFile.name}`,
+          resumeFile,
+          {
+            headers: {
+              AccessKey: accessKey,
+              "Content-Type": resumeFile.type,
+            },
+          }
+        );
+  
+        console.log(resumeUploadResp.config);
+  
+        if (resumeUploadResp.status === 201) {
+          // Assuming Bunny returns the file URL
+          resumeUrl =`https://vacationsaga.b-cdn.net/${placeName}/${resumeFile.name}`;
+        } else {
+          throw new Error("Failed to upload the resume.");
+        }
+      }
+  
+      // Step 2: Prepare the form data for submission with the resume URL (if uploaded)
+      const dataToSend = {
+        ...formData,
+        resume: resumeUrl, // Add the resume URL to the form data
+      };
+  
+      // Send the form data to your backend API
+      const resp = await axios.post("api/hiring", dataToSend, {
+        headers: { "Content-Type": "application/json" },
       });
-
-      if (resp.status === 200) {
+  
+      if (resp.status === 201) {
         toast.success("Congratulations! Your application is submitted.");
         setFormData({
           name: "",
@@ -64,7 +100,8 @@ const CareerForm: React.FC = () => {
           position: "",
           skills: "",
           description: "",
-          documents: null,
+          team: "",
+          resume: null,
         });
         router.push("/");
       }
@@ -75,6 +112,8 @@ const CareerForm: React.FC = () => {
       setIsSubmitting(false);
     }
   };
+  
+  
 
   const formFields = [
     { label: "Full Name", name: "name", icon: User, type: "text" },
@@ -126,7 +165,7 @@ const CareerForm: React.FC = () => {
                 </div>
               ))}
             </div>
-
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-700">
                 <div className="flex items-center gap-2">
@@ -141,10 +180,30 @@ const CareerForm: React.FC = () => {
                 onFocus={() => setFocusedField("description")}
                 onBlur={() => setFocusedField("")}
                 rows={4}
-                className="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#16293c] focus:border-transparent transition-all duration-200"
+                className="inline w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#16293c] focus:border-transparent transition-all duration-200"
                 placeholder="Tell us about yourself and why you're interested in this position"
                 required
               />
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-gray-700">
+                <div className="flex items-center gap-2">
+                  <FileText className="w-4 h-4 text-gray-500" />
+                  Team you are applying to:
+                </div>
+              </label>
+              
+                {/* className="inline px-3 py-2 w-full bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#16293c] focus:border-transparent transition-all duration-200"
+                placeholder="Tell us about yourself and why you're interested in this position"  */}
+                <select name="team" id=" " className="inline px-3 py-2 w-full bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#16293c] focus:border-transparent transition-all duration-200" value={formData.team}
+                onChange={handleChange}>
+                <option value="">Select a team:</option>
+                  <option value="Vacation Saga">Vacation Saga</option>
+                  <option value="Tech Tune">Tech Tunes</option>
+                  <option value="Admission Hoga">Admission Hoga</option>
+                  
+                </select>
+            </div>
             </div>
 
             <div className="space-y-2">
@@ -155,8 +214,8 @@ const CareerForm: React.FC = () => {
                 </div>
               </label>
               <input
-                id="documents"
-                name="documents"
+                id="resume"
+                name="resume"
                 type="file"
                 className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#16293c] focus:border-transparent transition-all duration-200"
                 onChange={handleChange}
