@@ -50,7 +50,7 @@ export default function ZairoLoader() {
         <div className="w-20 h-20 relative">
           <motion.div className="absolute inset-0 rounded-full border-4 border-slate-200 dark:border-slate-700" />
           <motion.div
-            className="absolute inset-0 rounded-full border-4 border-transparent border-t-blue-500"
+            className="absolute inset-0 rounded-full border-4 border-transparent border-t-red-600"
             animate={{ rotate: 360 }}
             transition={{ duration: 1.2, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
           />
@@ -58,7 +58,7 @@ export default function ZairoLoader() {
 
         {/* Logo in center */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold text-xl shadow-md">
+          <div className="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center text-white font-bold text-xl shadow-md">
             Z
           </div>
         </div>
@@ -69,7 +69,7 @@ export default function ZairoLoader() {
 
       {/* Progress bar */}
       <div className="w-64 h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-        <motion.div className="h-full bg-blue-500" style={{ width: `${progress}%` }} transition={{ duration: 0.1 }} />
+        <motion.div className="h-full bg-red-600" style={{ width: `${progress}%` }} transition={{ duration: 0.1 }} />
       </div>
 
       <p className="text-slate-600 dark:text-slate-400 mt-2">Loading...</p>
