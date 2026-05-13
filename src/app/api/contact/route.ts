@@ -13,14 +13,14 @@ export async function POST(req: Request) {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: "hr.zairointernational@gmail.com",
+        pass: "cgme swuq nrny pwma",
       },
     });
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.RECEIVER_EMAIL,
+      from: "hr.zairointernational@gmail.com",
+      to: "hr@zairointernational.com",
       subject: `Contact Form Submission: ${subject}`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
       html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong><br>${message}</p>`,
