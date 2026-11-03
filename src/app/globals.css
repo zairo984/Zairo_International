@@ -43,7 +43,8 @@ h2 {
   margin: 5px 0;
 }
 
-a.btn, button.btn {
+a.btn,
+button.btn {
   display: inline-block;
   background: #ff6b6b;
   color: white;
@@ -54,21 +55,28 @@ a.btn, button.btn {
   cursor: pointer;
 }
 
-a.btn:hover, button.btn:hover {
+a.btn:hover,
+button.btn:hover {
   background: #ff4c4c;
 }
+
 /* Custom bounce-up animation */
 @keyframes bounceUp {
   0% {
-    transform: translateY(200%); /* Start from below the screen */
+    transform: translateY(200%);
+    /* Start from below the screen */
     opacity: 0;
   }
+
   60% {
-    transform: translateY(-20px); /* Bounce slightly */
+    transform: translateY(-20px);
+    /* Bounce slightly */
     opacity: 1;
   }
+
   100% {
-    transform: translateY(0); /* Final position */
+    transform: translateY(0);
+    /* Final position */
   }
 }
 
@@ -79,20 +87,25 @@ a.btn:hover, button.btn:hover {
 
 /* Slow-motion Zoom Container */
 .img-hover-zoom--slowmo img {
-  transform-origin: 50% 65%; /* Control the point from which the zoom occurs */
-  filter: brightness(150%); /* Initial brightness (before hover) */
-  transition: transform 5s, filter 3s ease-in-out; /* Smooth transition */
+  transform-origin: 50% 65%;
+  /* Control the point from which the zoom occurs */
+  filter: brightness(150%);
+  /* Initial brightness (before hover) */
+  transition: transform 5s, filter 3s ease-in-out;
+  /* Smooth transition */
 }
 
 /* The Transformation */
 .img-hover-zoom--slowmo:hover img {
-  filter: brightness(100%); /* Change brightness on hover */
-  transform: scale(3); /* Zoom in on hover */
+  filter: brightness(100%);
+  /* Change brightness on hover */
+  transform: scale(3);
+  /* Zoom in on hover */
 }
 
 .scale-up-tl {
-	-webkit-animation: scale-up-tl 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	        animation: scale-up-tl 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -webkit-animation: scale-up-tl 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: scale-up-tl 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 .hover-scale-up-tl:hover {
@@ -100,36 +113,40 @@ a.btn:hover, button.btn:hover {
   animation: scale-up-tl 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
- 
- @-webkit-keyframes scale-up-tl {
+
+@-webkit-keyframes scale-up-tl {
   0% {
     -webkit-transform: scale(0.5);
-            transform: scale(0.5);
+    transform: scale(0.5);
     -webkit-transform-origin: 0% 0%;
-            transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
   }
+
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     -webkit-transform-origin: 0% 0%;
-            transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
   }
 }
+
 @keyframes scale-up-tl {
   0% {
     -webkit-transform: scale(0.5);
-            transform: scale(0.5);
+    transform: scale(0.5);
     -webkit-transform-origin: 0% 0%;
-            transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
   }
+
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     -webkit-transform-origin: 0% 0%;
-            transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
   }
 }
- /* slide-in */
+
+/* slide-in */
 .slide-in-blurred-top {
   animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
 }
@@ -145,6 +162,7 @@ a.btn:hover, button.btn:hover {
     filter: blur(40px);
     opacity: 0;
   }
+
   100% {
     transform: translateY(0) scaleY(1) scaleX(1);
     transform-origin: 50% 50%;
@@ -154,16 +172,20 @@ a.btn:hover, button.btn:hover {
 }
 
 .scale-out-horizontal {
-  animation: scale-out-horizontal 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both; /* Duration increased to 1s */
+  animation: scale-out-horizontal 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+  /* Duration increased to 1s */
 }
 
 @keyframes scale-out-horizontal {
   0% {
-    transform: scaleX(1); /* Start at full width */
+    transform: scaleX(1);
+    /* Start at full width */
     opacity: 1;
   }
+
   100% {
-    transform: scaleX(0.0); /* Shrinks horizontally */
+    transform: scaleX(0.0);
+    /* Shrinks horizontally */
     opacity: 0.8;
   }
 }
@@ -175,12 +197,15 @@ a.btn:hover, button.btn:hover {
 
 @keyframes scale-in-br {
   0% {
-    transform: scale(0.0); /* Start slightly scaled down */
+    transform: scale(0.0);
+    /* Start slightly scaled down */
     transform-origin: 100% 100%;
     opacity: 0.8;
   }
+
   100% {
-    transform: scale(1); /* Scale back to normal */
+    transform: scale(1);
+    /* Scale back to normal */
     transform-origin: 100% 100%;
     opacity: 1;
   }
@@ -188,24 +213,29 @@ a.btn:hover, button.btn:hover {
 
 /* Hover to trigger both animations */
 .hover\:scale-out-horizontal:hover {
-  animation: scale-out-horizontal 1s ease both; /* Slow scale-out */
+  animation: scale-out-horizontal 1s ease both;
+  /* Slow scale-out */
 }
 
 .hover\:scale-in-br:hover {
-  animation: scale-in-br 0.5s ease both; /* Normal speed for scale-in */
-  background-color: black; /* Background change during animation */
-  color: white; /* Optional text color change */
+  animation: scale-in-br 0.5s ease both;
+  /* Normal speed for scale-in */
+  background-color: black;
+  /* Background change during animation */
+  color: white;
+  /* Optional text color change */
 }
 
 .flip-in-hor-bottom {
-	animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
- @keyframes flip-in-hor-bottom {
+@keyframes flip-in-hor-bottom {
   0% {
     transform: rotateX(80deg);
     opacity: 0;
   }
+
   100% {
     transform: rotateX(0);
     opacity: 1;
@@ -217,6 +247,7 @@ a.btn:hover, button.btn:hover {
     transform: rotateX(90deg);
     opacity: 0;
   }
+
   100% {
     transform: rotateX(0);
     opacity: 1;
@@ -231,32 +262,33 @@ a.btn:hover, button.btn:hover {
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    --background: 36 24% 94%;
+    --foreground: 216 20% 12%;
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card-foreground: 216 20% 12%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
+    --popover-foreground: 216 20% 12%;
+    --primary: 357 69% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 36 20% 96%;
+    --secondary-foreground: 216 20% 12%;
+    --muted: 36 14% 92%;
+    --muted-foreground: 240 3% 42%;
+    --accent: 5 56% 94%;
+    --accent-foreground: 357 69% 40%;
+    --destructive: 357 69% 50%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
+    --border: 36 18% 88%;
+    --input: 36 18% 88%;
+    --ring: 357 69% 50%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
+    --radius: 0.25rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -291,7 +323,35 @@ a.btn:hover, button.btn:hover {
   * {
     @apply border-border;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  ::selection {
+    background: #F9E9E8;
+    color: #191D24;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
