@@ -25,19 +25,36 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
       cols,
     };
 
+    type Stage = { width: number; height: number };
+    type WalkProps = { startX: number; startY: number; endX: number };
+    type Peep = {
+      image: HTMLImageElement;
+      rect: number[];
+      width: number;
+      height: number;
+      drawArgs: (CanvasImageSource | number)[];
+      x: number;
+      y: number;
+      anchorY: number;
+      scaleX: number;
+      walk: gsap.core.Timeline | null;
+      setRect: (rect: number[]) => void;
+      render: (ctx: CanvasRenderingContext2D) => void;
+    };
+
     // UTILS
     const randomRange = (min: number, max: number) =>
       min + Math.random() * (max - min);
-    const randomIndex = (array: any[]) => randomRange(0, array.length) | 0;
-    const removeFromArray = (array: any[], i: number) => array.splice(i, 1)[0];
-    const removeItemFromArray = (array: any[], item: any) =>
+    const randomIndex = <T,>(array: T[]) => randomRange(0, array.length) | 0;
+    const removeFromArray = <T,>(array: T[], i: number) => array.splice(i, 1)[0];
+    const removeItemFromArray = <T,>(array: T[], item: T) =>
       removeFromArray(array, array.indexOf(item));
-    const removeRandomFromArray = (array: any[]) =>
+    const removeRandomFromArray = <T,>(array: T[]) =>
       removeFromArray(array, randomIndex(array));
-    const getRandomFromArray = (array: any[]) => array[randomIndex(array) | 0];
+    const getRandomFromArray = <T,>(array: T[]) => array[randomIndex(array) | 0];
 
     // TWEEN FACTORIES
-    const resetPeep = ({ stage, peep }: { stage: any; peep: any }) => {
+    const resetPeep = ({ stage, peep }: { stage: Stage; peep: Peep }) => {
       const direction = Math.random() > 0.5 ? 1 : -1;
       const offsetY = 100 - 250 * gsap.parseEase("power2.in")(Math.random());
       const startY = stage.height - peep.height + offsetY;
@@ -65,8 +82,8 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
       };
     };
 
-    const normalWalk = ({ peep, props }: { peep: any; props: any }) => {
-      const { startX, startY, endX } = props;
+    const normalWalk = ({ peep, props }: { peep: Peep; props: WalkProps }) => {
+      const { startY, endX } = props;
       const xDuration = 10;
       const yDuration = 0.25;
 
@@ -96,22 +113,6 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
     };
 
     const walks = [normalWalk];
-
-    // TYPES
-    type Peep = {
-      image: HTMLImageElement;
-      rect: number[];
-      width: number;
-      height: number;
-      drawArgs: any[];
-      x: number;
-      y: number;
-      anchorY: number;
-      scaleX: number;
-      walk: any;
-      setRect: (rect: number[]) => void;
-      render: (ctx: CanvasRenderingContext2D) => void;
-    };
 
     // FACTORY FUNCTIONS
     const createPeep = ({
@@ -196,7 +197,7 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
 
     const initCrowd = () => {
       while (availablePeeps.length) {
-        addPeepToCrowd().walk.progress(Math.random());
+        addPeepToCrowd().walk?.progress(Math.random());
       }
     };
 
@@ -247,7 +248,7 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
       canvas.height = stage.height * devicePixelRatio;
 
       crowd.forEach((peep) => {
-        peep.walk.kill();
+        peep.walk?.kill();
       });
 
       crowd.length = 0;

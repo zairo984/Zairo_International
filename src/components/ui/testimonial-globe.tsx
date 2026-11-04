@@ -590,8 +590,12 @@ export function TestimonialGlobe({
     onChange: onActiveChange,
   });
   const handlers = React.useRef({
-    arrive: (_index: number) => {},
-    front: (_index: number) => {},
+    arrive: (_index: number) => {
+      void _index;
+    },
+    front: (_index: number) => {
+      void _index;
+    },
     settle: () => {},
   });
 
