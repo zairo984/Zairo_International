@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState, type ComponentType, type ReactNode } from "react";
 import {
@@ -20,7 +19,7 @@ import {
   ChevronDown,
   Clock,
 } from "lucide-react";
-import heroImage from "@/images/career_banner.png";
+import CareersBanner from "@/components/careers/CareersBanner";
 import {
   EMPLOYMENT_LABEL,
   MODE_LABEL,
@@ -154,47 +153,19 @@ export default function CareersListing({
 
   return (
     <main className="w-full bg-white text-[#171717]">
-      <section className="relative min-h-[280px] overflow-hidden bg-[#f5f3f3] sm:min-h-[340px] lg:h-[340px]">
-        <div className="absolute inset-0">
-          <Image
-            src={heroImage}
-            alt="Zairo International Office"
-            fill
-            priority
-            className="object-cover object-[center_30%] sm:object-center"
-            sizes="100vw"
-          />
-          <div
-            className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-white/20 sm:from-white/75 sm:via-white/45 sm:to-transparent"
-            aria-hidden="true"
-          />
-        </div>
+      <CareersBanner
+        eyebrow="Careers · Build · Grow · Belong"
+        title={
+          <>
+            Careers at{" "}
+            <span className="text-primary">our company</span>
+          </>
+        }
+        description="Be part of a forward-thinking team that values innovation, collaboration, and continuous growth."
+        showCta
+      />
 
-        <div className="relative z-10 mx-auto flex h-full max-w-[1440px] items-center px-4 py-12 sm:px-10 sm:py-16 lg:px-12">
-          <div className="min-w-0 max-w-[570px]">
-            <div className="mb-3 flex items-center gap-3 sm:gap-4">
-              <span className="h-[2px] w-8 shrink-0 bg-[#dc101d] sm:w-10" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#171717] sm:text-xs sm:tracking-[0.22em]">
-                Build <span className="mx-1 text-[#dc101d]">•</span>
-                Grow <span className="mx-1 text-[#dc101d]">•</span>
-                Belong
-              </span>
-            </div>
-
-            <h1 className="break-words text-[30px] font-bold leading-[1.15] tracking-tight text-[#171717] sm:text-5xl lg:text-[50px]">
-              Careers at Zairo
-              <span className="text-[#dc101d]"> International</span>
-            </h1>
-
-            <p className="mt-3 max-w-[470px] text-sm leading-6 text-[#414141] sm:mt-4 sm:text-base">
-              Be a part of a forward-thinking team that values innovation,
-              collaboration and continuous growth.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative z-20 mx-auto -mt-6 max-w-[1120px] px-4 sm:-mt-8 sm:px-8">
+      <section className="relative z-20 mx-auto max-w-[1120px] px-4 pt-6 sm:px-8 sm:pt-8">
         <div className="rounded-2xl border border-black/5 bg-white p-2.5 shadow-[0_12px_40px_rgba(0,0,0,0.08)] sm:p-4">
           <div
             className={`grid gap-2 sm:gap-3 ${

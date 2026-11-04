@@ -55,11 +55,17 @@ const config = {
         },
         // Optional: backup accent hex
         customAccent: "#FF5733",
+        navy: {
+          DEFAULT: "#0B1C2C",
+          deep: "#08141F",
+          soft: "#132536",
+        },
       },
       animation: {
         fadeInUp: "fadeInUp 0.5s ease-in-out",
         bgSlide: "bgSlide 20s linear infinite",
         flipInHorBottom: "flipInHorBottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both",
+        wave: "wave 18s linear infinite",
       },
       keyframes: {
         fadeInUp: {
@@ -90,6 +96,14 @@ const config = {
             opacity: "1",
           },
         },
+        wave: {
+          "0%": {
+            transform: "translateX(0)",
+          },
+          "100%": {
+            transform: "translateX(-50%)",
+          },
+        },
       },
       spacing: {
         "128": "32rem",
@@ -100,6 +114,9 @@ const config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      transitionTimingFunction: {
+        motion: "cubic-bezier(0.22, 1, 0.36, 1)",
       },
     },
   },

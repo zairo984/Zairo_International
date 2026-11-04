@@ -1,41 +1,36 @@
-import Slider from '@/components/Slider';
-import 'animate.css';
-import Expertise from '@/components/Expertise';
-import MessageSection from '@/components/MessageSection';
-import Team from '@/components/Team';
-import Projects from '../components/Projects';
-import Blogs from '@/components/Blogs';
-// import Header from '@/components/Header';
-import PageTransition from '@/components/page-transition';
-// import Header from '@/components/Header';
-// import Footer from '@/components/Footer';
+import PageTransition from "@/components/page-transition";
+import {
+  LandingHero,
+  Services,
+  FeaturedProjects,
+  About,
+  Team,
+  TestimonialsGlobe,
+  FinalCta,
+} from "@/components/landing";
 
+/**
+ * Homepage structure (lean company brand page):
+ * 1. Hero         — brand identity
+ * 2. Capabilities — what Zairo does
+ * 3. Ventures     — products with their own sites
+ * 4. Company      — who we are
+ * 5. Voices       — partner testimonials (globe)
+ * 6. Team         — people (API)
+ * 7. CTA          — contact close
+ */
 export default function Home() {
-
-  
-
   return (
     <PageTransition>
-    <main>
-      <section>
-        {/* <Header/> */}
-        <Slider />
-        <MessageSection/>
-        <Expertise/>
-        <section>
-          <Team/>
-        </section>
-        <section>
-          <Blogs/>
-        </section>
-        <section>
-          <Projects/>
-        </section>
-        {/* <section>
-          <Footer/>
-        </section> */}
-      </section>
-    </main>
+      <main id="main-content">
+        <LandingHero />
+        <Services />
+        <FeaturedProjects />
+        <About />
+        <TestimonialsGlobe />
+        <Team />
+        <FinalCta />
+      </main>
     </PageTransition>
   );
 }

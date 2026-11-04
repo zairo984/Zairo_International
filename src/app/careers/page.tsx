@@ -1,3 +1,4 @@
+import CareersCrowdIntro from "@/components/careers/CareersCrowdIntro";
 import CareersListing from "@/components/careers/CareersListing";
 import { getJobs, type JobOpening } from "@/lib/careers";
 
@@ -13,5 +14,9 @@ export default async function CareersPage() {
     error = true;
   }
 
-  return <CareersListing jobs={jobs} error={error} />;
+  return (
+    <CareersCrowdIntro>
+      <CareersListing jobs={jobs} error={error} />
+    </CareersCrowdIntro>
+  );
 }

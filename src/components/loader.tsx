@@ -28,6 +28,8 @@ export default function ZairoLoader() {
 
         setTimeout(() => {
           setProgress(100)
+          // Let page sections (hero) start the same entrance used on theme change
+          window.dispatchEvent(new CustomEvent("zairo:loader-done"))
           // Fade out the loader
           setTimeout(() => setVisible(false), 300)
         }, remainingTime)
