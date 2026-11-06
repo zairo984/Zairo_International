@@ -3,7 +3,6 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import SmoothScroll from "@/components/SmoothScroll";
 import { HeroThemeProvider } from "@/components/hero-theme-provider";
 
 import { Suspense } from "react";
@@ -30,14 +29,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${manrope.variable} antialiased`}>
         <HeroThemeProvider>
-          <SmoothScroll>
-            <Header />
-            <Suspense fallback={null}>
-              <ZairoLoader />
-            </Suspense>
-            {children}
-            <Footer />
-          </SmoothScroll>
+          <Header />
+          <Suspense fallback={null}>
+            <ZairoLoader />
+          </Suspense>
+          {children}
+          <Footer />
         </HeroThemeProvider>
       </body>
     </html>

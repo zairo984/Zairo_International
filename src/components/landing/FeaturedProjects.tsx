@@ -130,13 +130,21 @@ export default function FeaturedProjects() {
                   <p className="mt-2 flex-1 text-sm leading-5 text-white/65 text-pretty line-clamp-3">
                     {venture.blurb}
                   </p>
-                  <span className="group/button mt-3 inline-flex items-center gap-2 text-sm font-medium text-primary transition-all duration-300">
+                  <span className="mt-3 inline-flex w-fit items-center gap-2 self-start rounded-full bg-red-600 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors duration-300 group-hover:bg-red-500">
                     {venture.cta}
-                    <ArrowRight
-                      weight="bold"
-                      className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                    <span
+                      className="relative inline-flex h-4 w-4 overflow-hidden"
                       aria-hidden
-                    />
+                    >
+                      <ArrowRight
+                        weight="bold"
+                        className="h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-4 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0"
+                      />
+                      <ArrowRight
+                        weight="bold"
+                        className="absolute inset-0 h-4 w-4 -translate-x-4 transition-transform duration-300 ease-out group-hover:translate-x-0 motion-reduce:transition-none motion-reduce:-translate-x-4"
+                      />
+                    </span>
                   </span>
                 </div>
               </article>

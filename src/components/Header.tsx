@@ -15,7 +15,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 const navLinks = [
   { name: "Home", href: "/", type: "link" as const },
   { name: "About", href: "/about", type: "link" as const },
-  { name: "Capabilities", href: "#capabilities", type: "scroll" as const, sectionId: "capabilities" },
+  { name: "Services", href: "#capabilities", type: "scroll" as const, sectionId: "capabilities" },
   { name: "Ventures", href: "#ventures", type: "scroll" as const, sectionId: "ventures" },
   { name: "Team", href: "#team", type: "scroll" as const, sectionId: "team" },
 ];
@@ -72,13 +72,7 @@ export default function Header() {
     if (pathname !== "/") {
       router.push(`/#${sectionId}`);
     } else {
-      const target = document.getElementById(sectionId);
-      const lenis = (window as Window & { __lenis?: { scrollTo: (el: Element, opts?: object) => void } }).__lenis;
-      if (target && lenis) {
-        lenis.scrollTo(target, { offset: -88 });
-      } else {
-        target?.scrollIntoView({ behavior: "smooth" });
-      }
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
     }
     setIsMenuOpen(false);
   };

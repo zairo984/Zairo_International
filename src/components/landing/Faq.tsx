@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: "How do I start a conversation?",
-    a: "Use the contact form or email hr@zairointernational.com with the outcome you want to explore.",
+    a: "Use the contact form or email info@zairointl.com with the outcome you want to explore.",
   },
   {
     q: "Where can I see open roles?",

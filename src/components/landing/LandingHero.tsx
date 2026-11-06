@@ -11,7 +11,6 @@ import vacationMark from "@/images/ventures/vacation-saga.png";
 import housingLogo from "@/images/ventures/housing-saga.webp";
 import techTunesMark from "@/images/ventures/tech-tunes.jpg";
 import silkenMark from "@/images/ventures/silken-knot.jpg";
-import BrandHoverZoom, { BrandLetters } from "./BrandHoverZoom";
 import { useHeroTheme } from "@/components/hero-theme-provider";
 import { landingEase as ease, maskReveal, softIn } from "./landingMotion";
 
@@ -208,26 +207,24 @@ export default function LandingHero() {
           className="relative z-10 mx-auto flex h-[100svh] max-w-7xl flex-col px-6 pb-14 pt-24 sm:pb-16 sm:pt-28"
         >
           <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col justify-center text-center">
-            <BrandHoverZoom className="mx-auto inline-block max-w-full">
-              <motion.h1
-                className="text-[2.35rem] font-semibold leading-[1.05] tracking-tight text-balance sm:text-5xl md:text-6xl lg:text-7xl"
-                {...maskReveal(0.12, !!reduced)}
+            <motion.h1
+              className="mx-auto text-[2.35rem] font-semibold leading-[1.05] tracking-tight text-balance sm:text-5xl md:text-6xl lg:text-7xl"
+              {...maskReveal(0.12, !!reduced)}
+            >
+              <span
+                className={`whitespace-nowrap ${ink} ${
+                  reduced
+                    ? ""
+                    : `hero-shimmer-text ${isLight ? "hero-shimmer-text-light" : ""}`
+                }`}
               >
-                <BrandLetters
-                  text="ZAIRO"
-                  className={`whitespace-nowrap ${ink} ${
-                    reduced
-                      ? ""
-                      : `hero-shimmer-text ${isLight ? "hero-shimmer-text-light" : ""}`
-                  }`}
-                />
-                <br />
-                <BrandLetters
-                  text="INTERNATIONAL"
-                  className="whitespace-nowrap text-primary"
-                />
-              </motion.h1>
-            </BrandHoverZoom>
+                ZAIRO
+              </span>
+              <br />
+              <span className="whitespace-nowrap text-primary">
+                INTERNATIONAL
+              </span>
+            </motion.h1>
 
             <motion.p
               className={`mx-auto mt-4 max-w-2xl text-lg font-medium tracking-tight text-balance sm:mt-5 sm:text-xl md:text-2xl lg:text-3xl ${

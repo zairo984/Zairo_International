@@ -53,6 +53,27 @@ export async function getJob(slug: string): Promise<JobOpening | null> {
   return body.data;
 }
 
+export type FeaturedEmployee = {
+  _id?: string;
+  name: string;
+  position?: string;
+  department?: string;
+  description?: string;
+  photoUrl?: string;
+};
+
+export async function getFeaturedEmployees(): Promise<FeaturedEmployee[]> {
+  const res = await fetch(
+    `${ADMINSTRO_API_BASE}/api/public/featured-employees`,
+    { cache: "no-store" },
+  );
+  const body = await res.json();
+  if (!res.ok || !body.success || !Array.isArray(body.data)) {
+    throw new Error(body.error || "Failed to fetch featured employees");
+  }
+  return body.data;
+}
+
 export async function getOfficeAddresses(): Promise<OfficeAddress[]> {
   const res = await fetch(
     `${ADMINSTRO_API_BASE}/api/office-addresses?active=1`,

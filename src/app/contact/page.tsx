@@ -16,16 +16,17 @@ const ContactUs = () => {
             city: "Kanpur",
             address: "117/N/70 3rd Floor Kakadeo Kanpur Uttar Pradesh, 208025",
             phone: "+91 9598023492",
-            email: "hr@zairointernational.com",
+            email: "info@zairointl.com",
           },
           {
-            city: "Delhi",
-            address: "32, Sector 32, Gurgaon - 122003",
+            city: "Noida",
+            address:
+              "Plot No 15, Sector 142, Noida, Uttar Pradesh 201304",
             phone: "+91 9187659083",
-            email: "hr@zairointernational.com",
+            email: "info@zairointl.com",
           },
         ],
-        supportEmail: "hr@zairointernational.com",
+        supportEmail: "info@zairointl.com",
         alternateEmail: "hr.zairointernational@gmail.com",
       };
 
@@ -228,16 +229,14 @@ const handleInputChange = (e: ChangeEvent) => {
                       <div className="flex flex-col">
                         <a
                           href={`mailto:${contactData.supportEmail}`}
-                          className="text-blue-600 hover:underline"
+                          className="text-gray-700 hover:underline"
                         >
                           {contactData.supportEmail}
-                          <span className="text-red-500 text-xs ml-2">
-                            (Currently Down due to maintenance)
-                          </span>
+                          
                         </a>
                         <a
                           href={`mailto:${contactData.alternateEmail}`}
-                          className="text-blue-600 hover:underline"
+                          className="text-gray-700 hover:underline"
                         >
                           {contactData.alternateEmail}
                         </a>

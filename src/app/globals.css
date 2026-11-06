@@ -366,6 +366,20 @@ button.btn:hover {
     animation: hero-ken 22s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
+  @keyframes zairo-drift {
+    0%,
+    100% {
+      transform: scale(1.04) translate3d(0, 0, 0);
+    }
+    50% {
+      transform: scale(1.1) translate3d(-1.5%, -1%, 0);
+    }
+  }
+
+  .zairo-drift {
+    animation: zairo-drift 18s ease-in-out infinite;
+  }
+
   @keyframes marquee {
     from {
       transform: translate3d(0, 0, 0);
@@ -645,6 +659,7 @@ button.btn:hover {
 
   @media (prefers-reduced-motion: reduce) {
     .hero-ken,
+    .zairo-drift,
     .hero-aperture,
     .hero-drift,
     .hero-beam,

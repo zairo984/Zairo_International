@@ -25,17 +25,7 @@ export default function AnimatedWaveFooter() {
     if (pathname !== page) {
       router.push(`${page}#${sectionId}`);
     } else {
-      const section = document.getElementById(sectionId);
-      const lenis = (
-        window as Window & {
-          __lenis?: { scrollTo: (el: Element, opts?: object) => void };
-        }
-      ).__lenis;
-      if (section && lenis) {
-        lenis.scrollTo(section, { offset: -88 });
-      } else {
-        section?.scrollIntoView({ behavior: "smooth" });
-      }
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -169,7 +159,7 @@ export default function AnimatedWaveFooter() {
                 onClick={() => handleScroll("capabilities")}
                 className="body-6 block text-left text-white/75 transition-opacity duration-300 ease-motion hover:text-white hover:opacity-100"
               >
-                Capabilities
+                Services
               </button>
               <button
                 type="button"
@@ -224,10 +214,10 @@ export default function AnimatedWaveFooter() {
               </p>
               <p>
                 <a
-                  href="mailto:hr@zairointernational.com"
+                  href="mailto:info@zairointl.com"
                   className="transition-opacity duration-300 ease-motion hover:text-white"
                 >
-                  Email: hr@zairointernational.com
+                  Email: info@zairointl.com
                 </a>
               </p>
             </address>

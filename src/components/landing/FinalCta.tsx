@@ -30,7 +30,7 @@ export default function FinalCta() {
         />
 
         <div className="relative z-10 grid grid-cols-1 items-center gap-5 md:grid-cols-[minmax(0,3fr)_minmax(0,1fr)] md:gap-8">
-          <div className="min-w-0 space-y-2 text-center md:pl-8 md:text-left lg:pl-0">
+          <div className="min-w-0 space-y-2 text-center md:pl-8 md:text-left lg:pl-5">
             <h2
               id="cta-heading"
               className="text-[20px] font-bold leading-snug text-white text-balance sm:text-[26px]"
